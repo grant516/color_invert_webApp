@@ -1,0 +1,55 @@
+{% load static %}
+
+<head>
+    <title>Color Matcher</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'color_mathcher/styles.css' %}">
+</head>
+
+<!-- <body> -->
+<!-- <body style="background-color: rgb(0, 191, 255);"> -->
+
+
+<h1 id="head">Color Display</h1>
+
+<td id="text">{{obs.red}}, {{obs.green}}, {{obs.blue}}</td>
+
+<!-- <input type="range" id="red2" value={{obs.red}}> -->
+
+<form oninput="colors()">
+    <input type="number" id="red" value={{obs.red}}>
+    <input type="number" id="green" value={{obs.green}}>
+    <input type="number" id="blue" value={{obs.blue}}>
+
+    <input type="number" id="i_red" value={{obs.i_red}}>
+    <input type="number" id="i_green" value={{obs.i_green}}>
+    <input type="number" id="i_blue" value={{obs.i_blue}}>
+    <!-- <input type="submit" value="Display Color" oninput="color()"> -->
+    </form>
+
+<script>
+    function colors(){
+        var red = document.getElementById("red").value;
+        var green = document.getElementById("green").value;
+        var blue = document.getElementById("blue").value;
+        var i_red = document.getElementById("i_red").value;
+        var i_green = document.getElementById("i_green").value;
+        var i_blue = document.getElementById("i_blue").value;
+        document.body.style.backgroundColor =
+        "rgb(" + red + ", " + green + ", " + blue + ")";
+        // document.body.style.textDecorationColor = 0;
+        document.getElementById("head").style.color = "rgb(" + i_red + ", " + i_green + ", " + i_blue + ")";
+        document.getElementById("text").style.color = "rgb(" + i_red + ", " + i_green + ", " + i_blue + ")";
+        document.getElementById("form").style.color = "rgb(" + i_red + ", " + i_green + ", " + i_blue + ")";
+    }
+</script>
+
+<br>
+<form action={% url "color" %} method="POST" id="form">
+    {% csrf_token %}
+    Red: <input type="number" name="obsRed"><br>
+    Green <input type="number" name="obsGreen"><br>
+    Blue: <input type="number" name="obsBlue"><br>
+    <input type="submit" name="add_new_obs" value="Display Color">
+</form>
+
+</body>
