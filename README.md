@@ -4,8 +4,6 @@ I built a simple web app to help me learn the basics of building web apps.
 
 The purpose of the software I built is to allow the user to enter a RGB value and receive the inverted colors. This is done by displaying both colors on the screen.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running and a walkthrough of the code.}
-
 [Software Demo Video](https://youtu.be/-cyRij2SObs)
 
 # Development Environment
